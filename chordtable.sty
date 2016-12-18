@@ -1,0 +1,57 @@
+\NeedsTeXFormat{LaTeX2e}
+
+\ProvidesPackage{chordtable}[2016/12/17]
+
+
+\RequirePackage{tabu}
+\RequirePackage[table]{xcolor}
+\RequirePackage{guitarchordschemes-custom}
+\RequirePackage{tikz}
+\RequirePackage{calc}
+\usetikzlibrary{calc}
+
+% CUSTOM COMMANDS
+\newcommand{\tsharp}[1]{#1\(\sharp\)}
+\newcommand{\tflat}[1]{#1\(\flat\)}
+
+% the following is needed to properly vertically center the note names:
+\newlength\ct@largefontsize
+\Large
+\setlength{\ct@largefontsize}{\f@size pt}
+\normalsize
+
+\newlength\ct@cellheight
+\settoheight{\ct@cellheight}{%
+  \chordscheme[
+    name=X
+  ]
+}
+
+\newlength\ct@middleheightofcell
+% height of tab is 4ex
+%\setlength{\middleheightofcell}{2ex-0.5\largefontsize}
+\setlength{\ct@middleheightofcell}{0.5\ct@cellheight - 0.5\ct@largefontsize}
+
+\newcommand{\notename}[1]{%
+  \Large
+  \raisebox{\ct@middleheightofcell}{#1}
+}
+
+\newenvironment{chordtable}{%
+  \taburowcolors{lightgray!30 .. white}
+  \begin{tabu}{X[0.7l]X[c]X[c]X[c]X[c]X[c]X[c]}
+}{%
+  \end{tabu}
+}
+
+\newenvironment{rightchordtable}{%
+  \taburowcolors{lightgray!30 .. white}
+  \begin{tabu}{X[c]X[c]X[c]X[c]X[c]X[c]X[0.7l]}
+}{%
+  \end{tabu}
+}
+
+% CHORD DEFINITIONS
+\input{chord-definitions}
+
+\endinput
