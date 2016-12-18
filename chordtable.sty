@@ -6,13 +6,18 @@
 \RequirePackage{tabu}
 \RequirePackage[table]{xcolor}
 \RequirePackage{guitarchordschemes-custom}
+
 \RequirePackage{tikz}
 \RequirePackage{calc}
 \usetikzlibrary{calc}
 
 % CUSTOM COMMANDS
-\newcommand{\tsharp}[1]{#1\(\sharp\)}
-\newcommand{\tflat}[1]{#1\(\flat\)}
+\newcommand{\tsharp}[1]{#1\(^\sharp\)}
+\newcommand{\tflat}[1]{#1\(^\flat\)}
+
+\newcommand{\ct@majsuffix}{}
+\newcommand{\ct@minsuffix}{min}
+\newcommand{\tminor}[1]{#1\ct@minsuffix{}}
 
 % the following is needed to properly vertically center the note names:
 \newlength\ct@largefontsize
@@ -50,6 +55,7 @@
 }{%
   \end{tabu}
 }
+
 
 % CHORD DEFINITIONS
 \input{chord-definitions}
