@@ -58,6 +58,16 @@
 
 
 % CHORD DEFINITIONS
+% thanks egreg: http://tex.stackexchange.com/a/355564/46356
+\newcommand{\newchord}[2]{%
+  \foreach \command/\name in {#1} {%
+    \expandafter\xdef\csname \command\endcsname{%
+      \def\noexpand\chordname{\unexpanded\expandafter{\name}}%
+      \unexpanded{#2}%
+    }%
+  }%
+}
+  
 \input{chord-definitions}
 
 \endinput
