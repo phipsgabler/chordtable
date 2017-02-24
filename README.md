@@ -61,6 +61,6 @@ gets replaced by the current chordname.
 
 This work is [unlicensed](http://unlicense.org/). 
 
-The code in [guitarchordschemes-custom.sty](./guitarchordschemes-custom.sty) is based on
+The code in [guitarchordschemes-custom.sty](./guitarchordschemes-custom.sty) is derived from
 the [guitarchordschemes package](https://www.ctan.org/pkg/guitarchordschemes) by Clemens
 Niederberger, which is LPPL licensed.
